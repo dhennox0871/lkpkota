@@ -1,0 +1,567 @@
+/*=============================================
+=            Admin Dashboard Variables        =
+=============================================*/
+:root {
+    /* Color Palette */
+    --primary-color: #4F46E5;
+    /* Indigo 600 */
+    --primary-hover: #4338CA;
+    --primary-light: rgba(79, 70, 229, 0.1);
+
+    --secondary-color: #0EA5E9;
+    /* Sky 500 */
+
+    --dark-color: #0F172A;
+    /* Slate 900 */
+    --sidebar-bg: #1E293B;
+    /* Slate 800 */
+    --sidebar-hover: #334155;
+
+    --text-main: #334155;
+    /* Slate 700 */
+    --text-muted: #64748B;
+    /* Slate 500 */
+    --text-light: #94A3B8;
+    /* Slate 400 */
+
+    --bg-main: #F3F4F6;
+    /* Gray 100 */
+    --bg-white: #FFFFFF;
+
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+
+    /* Typograpy */
+    --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Dimensions */
+    --sidebar-width: 260px;
+    --header-height: 70px;
+
+    /* Shadows & Transitions */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition-fast: 0.2s ease;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+}
+
+/*=============================================
+=            Global Resets                    =
+=============================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Typography Utilities */
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.h4 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Display Utilities */
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+/*=============================================
+=            Layout Wrapper                   =
+=============================================*/
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/*=============================================
+=            Sidebar Settings                 =
+=============================================*/
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: white;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-brand {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.sidebar-brand span.text-primary {
+    color: var(--secondary-color);
+    /* Lighter blue on dark bg */
+}
+
+.sidebar-menu {
+    padding: 1.5rem 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.menu-label {
+    padding: 0 1.5rem 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.menu-item {
+    margin-bottom: 0.25rem;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.menu-link i {
+    width: 20px;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.menu-link:hover,
+.menu-link.active {
+    color: white;
+    background-color: var(--sidebar-hover);
+    border-left: 3px solid var(--primary-color);
+}
+
+.menu-link.active {
+    background-color: rgba(79, 70, 229, 0.15);
+}
+
+/*=============================================
+=            Main Content Area                =
+=============================================*/
+.main-content {
+    flex-grow: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Navbar */
+.top-navbar {
+    height: var(--header-height);
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+
+.nav-toggle-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.top-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.nav-profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Content Body */
+.content-body {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/*=============================================
+=            Cards                            =
+=============================================*/
+.card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+/*=============================================
+=            Stats Grid                       =
+=============================================*/
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.stat-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-fast);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 1.25rem;
+}
+
+.icon-blue {
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--secondary-color);
+}
+
+.icon-indigo {
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+}
+
+.icon-green {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.stat-details h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--dark-color);
+}
+
+.stat-details p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/*=============================================
+=            Tables                           =
+=============================================*/
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    background-color: var(--bg-main);
+}
+
+td {
+    color: var(--text-main);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.bg-success-light {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.bg-danger-light {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+/*=============================================
+=            Buttons & Forms                  =
+=============================================*/
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #DC2626;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #E5E7EB;
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-main);
+}
+
+.btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    font-family: var(--font-family);
+    border: 1px solid #D1D5DB;
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/*=============================================
+=            Login Page Styling              =
+=============================================*/
+.login-body {
+    background: var(--sidebar-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-card .btn-primary {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
