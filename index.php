@@ -73,9 +73,6 @@ if (file_exists('config/database.php')) {
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
         </div>
     </header>
 
