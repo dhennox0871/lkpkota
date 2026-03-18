@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin_logged_in'])) {
-    header('Location: login.php');
+    // Redirect ke login.php dengan path absolut dari root domain demi keamanan
+    header('Location: /d-board/login.php');
     exit;
 }
 
