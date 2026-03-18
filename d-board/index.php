@@ -22,9 +22,7 @@ if (isset($conn) && is_object($conn) && !$conn->connect_error) {
         $total_program = $res_prog->fetch_assoc()['total'];
 }
 else {
-    // Dummy counts if DB offline
-    $total_lkp = 3;
-    $total_program = 10;
+    $total_program = 0;
 }
 ?>
 <!DOCTYPE html>
@@ -158,24 +156,6 @@ if (isset($conn) && is_object($conn) && !$conn->connect_error) {
     else {
         echo "<tr><td colspan='5' class='text-center text-muted py-4'>Belum ada data di database</td></tr>";
     }
-}
-else {
-    // Placeholder
-    echo "
-                                    <tr>
-                                        <td><b>05103.4.1.0001</b></td>
-                                        <td>LKP Citra Komputer Malang</td>
-                                        <td>Admin Citra</td>
-                                        <td><span class='badge bg-success-light'>Aktif</span></td>
-                                        <td><button class='btn btn-outline btn-sm'><i class='fas fa-edit'></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>05103.4.1.0002</b></td>
-                                        <td>LKP Wearnes Education Center Malang</td>
-                                        <td>Budi Santoso</td>
-                                        <td><span class='badge bg-success-light'>Aktif</span></td>
-                                        <td><button class='btn btn-outline btn-sm'><i class='fas fa-edit'></i></button></td>
-                                    </tr>";
 }
 ?>
                             </tbody>

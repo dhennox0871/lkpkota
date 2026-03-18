@@ -32,37 +32,6 @@ if (file_exists('config/database.php')) {
         }
     }
 }
-
-// Fallback data dummy jika database belum dikonfigurasi/diimport
-// Ini membantu melihat desain tanpa error MySQL
-if (!$db_connected || empty($lkp_data)) {
-    $lkp_data = [
-        [
-            'nilek' => '05103.4.1.0001',
-            'name' => 'LKP Citra Komputer Malang',
-            'address' => 'Jl. Guntur No.33, Oro Oro Dowo, Klojen, Kota Malang 65112',
-            'leader_name' => 'Admin Citra',
-            'phone' => '081234567890',
-            'programs' => ['Desain Grafis', 'Administrasi Perkantoran', 'Social Media Marketing', 'AutoCAD']
-        ],
-        [
-            'nilek' => '05103.4.1.0002',
-            'name' => 'LKP Wearnes Education Center Malang',
-            'address' => 'Jl. Jakarta No.38, Penanggungan, Klojen, Kota Malang 65113',
-            'leader_name' => 'Budi Santoso',
-            'phone' => '0341555666',
-            'programs' => ['Informatika & Komputer', 'Bisnis Digital', 'Robotika']
-        ],
-        [
-            'nilek' => '05103.4.1.0003',
-            'name' => 'LKP Kampung Inggris Malang',
-            'address' => 'Jl. MT. Haryono Ruko Dinoyo Permai, Kota Malang',
-            'leader_name' => 'Siti Aminah',
-            'phone' => '085612345678',
-            'programs' => ['Speaking English', 'TOEFL Preparation', 'Grammar Course']
-        ]
-    ];
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">

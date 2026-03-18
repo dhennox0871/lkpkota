@@ -21,12 +21,8 @@ if (isset($conn) && is_object($conn) && !$conn->connect_error) {
     }
 }
 else {
-    // Dummy Data
-    $lkp_data = [
-        ['nilek' => '05103.4.1.0001', 'name' => 'LKP Citra Komputer Malang', 'leader_name' => 'Admin Citra', 'phone' => '081234567890', 'status' => 'Aktif'],
-        ['nilek' => '05103.4.1.0002', 'name' => 'LKP Wearnes Education Center Malang', 'leader_name' => 'Budi Santoso', 'phone' => '0341555666', 'status' => 'Aktif'],
-        ['nilek' => '05103.4.1.0003', 'name' => 'LKP Kampung Inggris Malang', 'leader_name' => 'Siti Aminah', 'phone' => '085612345678', 'status' => 'Aktif']
-    ];
+    // Kosongkan jika koneksi gagal
+    $lkp_data = [];
 }
 ?>
 <!DOCTYPE html>
