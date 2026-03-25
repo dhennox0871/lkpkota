@@ -5,17 +5,13 @@ $username = "root";
 $password = "dhenhari";
 $database = "lkpkota";
 
-// Create connection with try-catch for PHP 8.1+ compatibility
-try {
-    $conn = new mysqli($host, $username, $password, $database);
+// Enable MySQLi error reporting
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-    // Check connection 
-    if ($conn->connect_error) {
-        $conn = null;
-    }
-}
-catch (Exception $e) {
-    // Silenced error for preview purposes if db isn't created yet
-    $conn = null;
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>

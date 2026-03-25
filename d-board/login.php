@@ -1,5 +1,9 @@
 <?php
 session_start();
+// Aktifkan error reporting untuk debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Hardcoded admin for template purposes
 $error = '';
 

@@ -1,6 +1,9 @@
 <?php
 // Nonaktifkan error agar tampilan tetap rapi jika database belum diimport
-error_reporting(0);
+// Aktifkan error reporting untuk debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 $db_connected = false;
 $lkp_data = [];

@@ -1,5 +1,9 @@
 <?php
 session_start();
+// Aktifkan error reporting untuk debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Validasi session
 if (!isset($_SESSION['admin_logged_in'])) {
     // Redirect ke login.php dengan path absolut agar aman di semua kondisi
