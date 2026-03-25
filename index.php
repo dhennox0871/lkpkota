@@ -31,6 +31,9 @@ if (file_exists('config/database.php')) {
             }
         }
     }
+    else {
+        print_r($conn);
+    }
 }
 ?>
 <!DOCTYPE html>
