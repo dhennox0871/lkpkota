@@ -1,6 +1,6 @@
 <?php
 // Konfigurasi Database
-$host = "nextcloud";
+$host = "nextcloud-db";
 $username = "root";
 $password = "dhenhari";
 $database = "lkpkota";
