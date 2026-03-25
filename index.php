@@ -3,7 +3,7 @@
 //error_reporting(0);
 
 //$db_connected = false;
-//$lkp_data = [];
+$lkp_data = [];
 
 // Coba koneksi ke database MySQL
 if (file_exists('config/database.php')) {
