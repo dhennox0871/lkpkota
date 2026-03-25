@@ -1,9 +1,9 @@
 <?php
 // Konfigurasi Database
-$host = "localhost";
+$host = "nextcloud";
 $username = "root";
-$password = "";
-$database = "db_lkpkota";
+$password = "dhenhari";
+$database = "lkpkota";
 
 // Create connection with try-catch for PHP 8.1+ compatibility
 try {
