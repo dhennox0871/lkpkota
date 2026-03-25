@@ -1,8 +1,8 @@
 <?php
 // Nonaktifkan error agar tampilan tetap rapi jika database belum diimport
-//error_reporting(0);
+error_reporting(0);
 
-//$db_connected = false;
+$db_connected = false;
 $lkp_data = [];
 
 // Coba koneksi ke database MySQL
