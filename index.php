@@ -1,9 +1,9 @@
 <?php
 // Nonaktifkan error agar tampilan tetap rapi jika database belum diimport
-error_reporting(0);
+//error_reporting(0);
 
-$db_connected = false;
-$lkp_data = [];
+//$db_connected = false;
+//$lkp_data = [];
 
 // Coba koneksi ke database MySQL
 if (file_exists('config/database.php')) {
@@ -130,11 +130,12 @@ if (file_exists('config/database.php')) {
                 <h3 class="h5">Belum ada data tersedia</h3>
                 <p class="text-muted">Silakan tambahkan data LKP melalui panel admin.</p>
             </div>
-            <?php else: ?>
+            <?php
+else: ?>
             <div class="grid-3-col">
                 <?php foreach ($lkp_data as $index => $lkp): ?>
                 <!-- LKP Card -->
-                <div class="program-card card-hover-fx fade-in-up delay-<?php echo ($index % 4) + 1; ?>">
+                <div class="program-card card-hover-fx fade-in-up delay-<?php echo($index % 4) + 1; ?>">
                     <div class="card-img-top placeholder-img <?php echo $index % 2 == 0 ? 'bg-gradient' : 'bg-gradient-alt'; ?>" style="height: 120px;">
                         <i class="fas fa-building main-icon" style="font-size: 3rem;"></i>
                         <div class="category-tag"><i class="fas fa-certificate text-warning mr-1"></i> NILEK: <?php echo htmlspecialchars($lkp['nilek']); ?></div>
@@ -150,17 +151,18 @@ if (file_exists('config/database.php')) {
                         
                         <h4 class="text-sm fw-600 mb-2">Program Unggulan:</h4>
                         <div class="program-tags mb-4">
-                            <?php 
-                            if(!empty($lkp['programs'])):
-                                foreach($lkp['programs'] as $prog): 
-                            ?>
+                            <?php
+        if (!empty($lkp['programs'])):
+            foreach ($lkp['programs'] as $prog):
+?>
                                 <span class="badge text-xs bg-soft text-main px-2 py-1 rounded d-inline-block mb-1" style="background-color: var(--bg-soft); color: var(--text-main);"><?php echo htmlspecialchars($prog); ?></span>
-                            <?php 
-                                endforeach; 
-                            else:
-                            ?>
+                            <?php
+            endforeach;
+        else:
+?>
                                 <span class="text-muted text-xs italic">Belum ada program diinput</span>
-                            <?php endif; ?>
+                            <?php
+        endif; ?>
                         </div>
                         
                         <div class="card-footer-flex pt-2">
@@ -168,9 +170,11 @@ if (file_exists('config/database.php')) {
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php
+    endforeach; ?>
             </div>
-            <?php endif; ?>
+            <?php
+endif; ?>
             
             <div class="text-center mt-5">
                 <a href="#" class="btn btn-primary btn-lg rounded-pill hover-lift shadow-md">Muat Lebih Banyak LKP <i class="fas fa-chevron-down ml-2"></i></a>
